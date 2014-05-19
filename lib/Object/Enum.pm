@@ -44,11 +44,11 @@ Object::Enum - replacement for C<< if ($foo eq 'bar') >>
 
 =head1 VERSION
 
-Version 0.072
+Version 0.073
 
 =cut
 
-our $VERSION = '0.072';
+our $VERSION = '0.073';
 
 =head1 SYNOPSIS
 
@@ -121,7 +121,7 @@ sub _mk_values {
       into => $class,
       as   => "set_$value",
       code => sub { $_[0]->value($value); return $_[0] },
-    });
+    }) unless $class->_immutable;
     Sub::Install::install_sub({
       into => $class,
       as   => "is_$value",
@@ -143,6 +143,7 @@ sub new {
 
   exists $arg->{unset}   or $arg->{unset} = 1;
   exists $arg->{default} or $arg->{default} = undef;
+  exists $arg->{immutable} or $arg->{immutable} = 0;
 
   if (!$arg->{unset} && !defined $arg->{default}) {
     Carp::croak("must supply a defined default for 'unset' to be false");
@@ -158,6 +159,7 @@ sub new {
   $gen->_unset($arg->{unset});
   $gen->_default($arg->{default});
   $gen->_values({ map { $_ => 1 } @{$arg->{values}} });
+  $gen->_immutable($arg->{readonly});
   $gen->_mk_values;
 
   return $gen->spawn;
@@ -211,7 +213,7 @@ Note: don't pass in undef; use the L<unset|/unset> method instead.
 
 sub value {
   my $self = shift;
-  if (@_) {
+  if (@_ && !$self->_immutable) {
     my $val = shift;
     Carp::croak("object $self cannot be set to undef") unless defined $val;
     unless ($self->_values->{$val}) {
@@ -302,6 +304,10 @@ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Object-Enum>
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Object-Enum>
+
+=item * GitHub
+
+L<https://github.com/jmmills/object-enum/>
 
 =back
 
