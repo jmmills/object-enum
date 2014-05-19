@@ -7,8 +7,10 @@ Makefile.PL
 README
 lib/Object/Enum.pm
 t/00-load.t
+t/02-regression.t
+t/03-basic.t
 t/boilerplate.t
 t/enum.t
+t/immutable.t
 t/pod-coverage.t
 t/pod.t
-t/regression.t
