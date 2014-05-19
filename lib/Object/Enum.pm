@@ -303,6 +303,10 @@ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Object-Enum>
 
 L<http://search.cpan.org/dist/Object-Enum>
 
+=item * GitHub
+
+L<https://github.com/jmmills/object-enum/>
+
 =back
 
 =head1 ACKNOWLEDGEMENTS
