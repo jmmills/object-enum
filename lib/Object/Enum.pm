@@ -42,14 +42,6 @@ sub _build_enum {
 
 Object::Enum - replacement for C<< if ($foo eq 'bar') >>
 
-=head1 VERSION
-
-Version 0.073
-
-=cut
-
-our $VERSION = '0.073';
-
 =head1 SYNOPSIS
 
   use Object::Enum qw(Enum);
