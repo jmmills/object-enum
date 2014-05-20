@@ -1,5 +1,5 @@
 package Object::Enum;
-
+$Object::Enum::VERSION = '0.073';
 use strict;
 use warnings;
 use 5.006001;
@@ -41,14 +41,6 @@ sub _build_enum {
 =head1 NAME
 
 Object::Enum - replacement for C<< if ($foo eq 'bar') >>
-
-=head1 VERSION
-
-Version 0.073
-
-=cut
-
-our $VERSION = '0.073';
 
 =head1 SYNOPSIS
 
