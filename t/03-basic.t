@@ -30,7 +30,7 @@ ok $obj->set_red;
 my $new_obj = $obj->clone;
 
 {
-    no overloading;
+    no overload "";
     ok $obj != $new_obj;
     ok $obj->set_blue;
     ok $obj->is_blue;
