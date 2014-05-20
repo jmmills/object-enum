@@ -34,7 +34,6 @@ my $new_obj = $obj->clone;
     ok $obj != $new_obj;
     ok $obj->set_blue;
     ok $obj->is_blue;
-    diag $new_obj->value;
     ok $new_obj->is_red;
 }
 
