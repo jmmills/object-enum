@@ -27,14 +27,11 @@ ok !$obj->unset;
 
 ok $obj->set_red;
 
-my $new_obj = $obj->clone;
+my $new_obj = $obj->clone();
 
-{
-    no overload "";
-    ok $obj != $new_obj;
-    ok $obj->set_blue;
-    ok $obj->is_blue;
-    #ok $new_obj->is_red;
-}
+isnt $obj, $new_obj;
+ok $obj->set_blue;
+ok $obj->is_blue;
+#ok $new_obj->is_red;
 
 done_testing();
