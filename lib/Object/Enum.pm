@@ -16,12 +16,10 @@ __PACKAGE__->mk_classdata($_) for (
   '_values',
   '_unset',
   '_default',
-  '_immutable'
 );
 
 __PACKAGE__->mk_accessors(
   'value',
-  'immutable'
 );
 
 __PACKAGE__->_unset(1);
