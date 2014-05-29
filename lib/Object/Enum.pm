@@ -185,7 +185,7 @@ deprecated.
 sub clone {
   my $class = shift;
   my $self = bless {
-    value => $class->_default,
+    value => ref($class)? $class->value : $class->_default,
   } => ref($class) || $class;
   $self->value(@_) if @_;
   return $self;
