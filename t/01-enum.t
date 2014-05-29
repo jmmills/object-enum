@@ -15,8 +15,6 @@ sub ok_eval_fail (&$$) {
   like($@, $expect, $text);
 }
 
-ok 0;
-
 ok_eval_fail { Enum() }
   no_args => qr/at least one possible/;
 
