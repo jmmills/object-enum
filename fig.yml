@@ -1,3 +1,5 @@
 dev:
   build: .
   command: test
+  volumes:
+    - .:/dist/
